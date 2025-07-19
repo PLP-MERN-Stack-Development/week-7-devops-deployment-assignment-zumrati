@@ -1,0 +1,40 @@
+name: Health Check
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'  # Every 15 minutes
+  workflow_dispatch:
+
+jobs:
+  health-check:
+    name: Check Application Health
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Check Frontend Health
+      run: |
+        response=$(curl -s -o /dev/null -w "%{http_code}" ${{ secrets.FRONTEND_URL }})
+        if [ $response -ne 200 ]; then
+          echo "Frontend health check failed with status code: $response"
+          exit 1
+        fi
+        echo "Frontend is healthy"
+
+    - name: Check Backend Health
+      run: |
+        response=$(curl -s -o /dev/null -w "%{http_code}" ${{ secrets.BACKEND_URL }}/health)
+        if [ $response -ne 200 ]; then
+          echo "Backend health check failed with status code: $response"
+          exit 1
+        fi
+        echo "Backend is healthy"
+
+    - name: Notify on Failure
+      if: failure()
+      uses: 8398a7/action-slack@v3
+      with:
+        status: failure
+        channel: '#alerts'
+        text: '🚨 Application health check failed!'
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
