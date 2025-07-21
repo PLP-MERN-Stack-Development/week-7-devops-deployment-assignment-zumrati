@@ -3,10 +3,10 @@ import { useTask } from '../contexts/TaskContext';
 import { Plus, Search, Filter, Edit3, Trash2, Calendar, Clock } from 'lucide-react';
 import Button from '../components/UI/Button';
 import Input from '../components/UI/Input';
-import Modal from '../components/UI/Modal';
+import Modal from '../components/UI/Model';
 import TaskForm from '../components/Tasks/TaskForm';
-import TaskFilters from '../components/Tasks/TaskFilters';
-import LoadingSpinner from '../components/UI/LoadingSpinner';
+import TaskFilters from '../components/Tasks/TaskFIlters';
+import LoadingSpinner from '../components/UI/LoadingSPinner';
 
 interface Task {
   _id: string;

@@ -283,7 +283,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 If you encounter any issues or have questions:
 
-1. Check the [Issues](https://github.com/your-username/mern-fullstack-app/issues) page
+1. Check the [Issues]$ https://github.com/PLP-MERN-Stack-Development/week-7-devops-deployment-assignment-zumrati.git'
+ page
 2. Create a new issue with detailed information
 3. Join our [Discord Community](https://discord.gg/your-discord) for real-time support
 

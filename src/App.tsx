@@ -8,7 +8,7 @@ import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import Tasks from './pages/Tasks';
 import Profile from './pages/Profile';
-import LoadingSpinner from './components/UI/LoadingSpinner';
+import LoadingSpinner from './components/UI/LoadingSPinner';
 import { Toaster } from 'react-hot-toast';
 
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
